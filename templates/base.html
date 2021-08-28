@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% load static %}
+	<title>{%block title%}{%endblock%}Christain College Of Engineering & Technology</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta content="text/html; charset=iso-8859-2" http-equiv="Content-Type">
+	<link rel="stylesheet" type="text/css" href="{% static 'ccetstyle.css' %}">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<style>
+.mySlides {display:none;}
+</style>
+</head>
+<body>
+<div class="header">
+
+
+<div class="container">
+	<div class="logo">
+		<img src="{% static 'ccet.png' %}" width="90%" height="auto">
+	</div>
+<div class="navbar">
+	
+	<nav>
+		<ul id="Menuitems">
+			<li><a href="/">Home</a></li>
+			<li><a href="products.html">Affiliation</a></li>
+			<li><a href="">About</a></li>
+			<li><a href="">Contact</a></li>
+			{% if user.is_authenticated%}
+			<li><a href="/users/logout">Logout</a></li>
+			{%else%}
+	        <li><a href="users/login">Login</a></li>
+
+
+	{%endif%}
+		</ul>
+	</nav>
+	<img src="{% static 'menu.png' %}" class="menu-icon" onclick="menutoggel()">
+    </div>
+    </div>
+    </div>
+	<script type="text/javascript">
+		var Menuitems=document.getElementById("Menuitems");
+		Menuitems.style.maxHeight="0px";
+		function menutoggel(){
+			if(Menuitems.style.maxHeight=="0px")
+			{
+				Menuitems.style.maxHeight="200px";
+			}
+			else
+			{
+				Menuitems.style.maxHeight="0px";
+			}
+		}
+	</script>
+	</body>
+	</html>
+    {% block body%}{%endblock%}

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% load static %}
+	<title>Christain College Of Engineering & Technology</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta content="text/html; charset=iso-8859-2" http-equiv="Content-Type">
+	<link rel="stylesheet" type="text/css" href="{% static 'ccetstyle.css' %}">
+	<!--<link rel="stylesheet" href="{% static 'bootstrap.css'%}">
+	<script src="{% static 'jquery.min.js'%}"></script>
+	  <script src="{% static 'bootstrap.js'%}"></script>-->
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<style>
+.mySlides {display:none;}
+</style>
+</head>
+<body>
+<div class="header">
+
+
+<div class="container">
+	<div class="logo">
+		<img src="{% static 'ccet.png' %}" width="90%" height="auto">
+	</div>
+<div class="navbar">
+	
+	<nav>
+		<ul id="Menuitems">
+			{% if user.is_authenticated %}
+				{% if user.is_superuser %}
+					<li><a href="#">Administrative</a></li>
+					<li><a href="/institute/register">Faculty Registraion</a></li>
+					<li><a href="/users/logout">Logout</a></li>
+				{%elif user.is_staff%}
+					<li><a href="">Home</a></li>
+					<li><a href="#">Affiliation</a></li>
+					<li><a href="">Courses Offered</a></li>
+					<li><a href="">Gallery</a></li>
+					<li><a href="/institute/managestd">Manage Students</a></li>
+					<li><a href="/institute/staffpanel">Staff panel</a></li>
+					<li><a href="/users/logout">Logout</a></li>
+				{%else%}
+					<li><a href="">Home</a></li>
+					<li><a href="#">Affiliation</a></li>
+					<li><a href="">Courses Offered</a></li>
+					<li><a href="">Gallery</a></li>
+					<li><a href="">Contact</a></li>
+					<li><a href="#">Student panel</a></li>
+					<li><a href="/users/logout">Logout</a></li>
+				{%endif%}
+			{%else%}
+			<li><a href="">Home</a></li>
+			<li><a href="products.html">Affiliation</a></li>
+			<li><a href="">Courses Offered</a></li>
+			<li><a href="">Gallery</a></li>
+			<li><a href="">Contact</a></li>
+			<li><a href="{% url 'users:login' %}">Login</a></li>
+			{%endif%}
+		</ul>
+	</nav>
+	
+	<img src="{% static 'menu.png' %}" class="menu-icon" onclick="menutoggel()">
+</div>
+<div class="row">
+	<div class="col-2">
+		<h1>Give your Education<br> A new style</h1>
+		<p>Succes isn't always about greatness. It's about consistancy.consistence hard work gains succes. Greartness will come.</p>
+		<a href="" class="btn"> Explore Now &#8594;</a>
+	</div>
+	<div class="col-2">
+		<img src="{% static 'ccet1.jpg' %}" >
+	</div>
+	
+</div>
+</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-2">
+	 <div class="slideshow">
+  	<div class="slideshow-item">
+  		<img src="{% static 'cmp.jpg' %}" alt="">
+  		 <div class="slideshow-item-text">
+  		 	<h5>computer science eng</h5>
+  		 </div>
+  	</div>
+
+  	<div class="slideshow-item">
+  		<img src="{% static 'mech.jpg' %}" alt="">
+  		 <div class="slideshow-item-text">
+  		 	<h5>Mechanical ENg</h5>
+  		 </div>
+  	</div>
+
+  	<div class="slideshow-item">
+  		<img src="{% static 'elec.jpg' %}" alt="">
+  		 <div class="slideshow-item-text">
+  		 	<h5>Electric eng</h5>
+  		 </div>
+  	</div>
+
+  	<div class="slideshow-item">
+  		<img src="{% static 'et.jpg' %}" alt="">
+  		 <div class="slideshow-item-text">
+  		 	<h5>e & t eng</h5>
+  		 </div>
+  	</div>
+
+  </div>
+</div>
+
+<div class="col-2">
+	
+	<div class="notification">
+		
+		<h2>Latest Notification</h2>
+		<hr>
+			<marquee behavior="scroll" height="90%" scrolldelay = "200" vspace = "40%" direction="up">
+										<p>PRACTICAL EXAMS OF 2ND SEMESTER TIME- TABLE</p><br>
+
+						<p>SUCHANA - VISHWAVIDYALAYA PARIKSHA STHAGIT</p><br>
+
+						<p>CLASS TEST -1 FOR 5TH & 7TH SEMESTER STUDENTS OF ALL BRANCH</p><br>
+
+						<p>CLASS TEST-1 FOR 3RD SEMESTER STUDENTS OF ALL BRANCH</p><br>
+
+						<p>PRACTICAL EXAMINATION TIME TABLE VIII SEM APRIL-MAY 2020</p><br>
+
+						<p>ONLINE FDP ON OPERATIONS MANAGEMENT OCTOBER, 5 - 9, 2020</p><br>
+
+						<p>FDP ON ALTERNATE FUELS SEPTEMBER 7-11 2020</p><br>
+
+						<p>NATIONAL EDUCATIONAL ALLIANCE FOR TECHNOLOGY-AICTE</p><br>
+
+						<p>LAST DATE OF M.TECH 1ST SEM TO 3RD SEM ONLINE EXAM FORM FILLING, APRIL-MAY 2020</p><br>
+
+						<p>LAST DATE OF B.E AND B.TECH 1ST SEM TO 8TH SEM ONLINE EXAM FORM FILLING, APRIL-MAY 2020</p><br>
+
+						<p>LAST DATE OF 7TH AND 8TH SEM ONLINE EXAM FORM FILLING APRIL-MAY 2020</p><br>
+
+						<p>1ST AND 2ND SEM ONLINE EXAM FORM DATES APRIL-MAY 2020</p><br>
+			</marquee>
+	</div>
+</div>
+</div>
+
+
+
+<div class="container">
+<div class="row">
+	<div class="col-2">
+		<div class="fl">
+			<h3>About Us</h3>
+			<p>
+				CCET provides opportunity to talented, motivated students from all walks of life to acquire the skills and knowledge they need to succeed in highly competitive engineering professions.
+				CCET is guided by its vision of providing quality technical education. A private non-profit organization,
+				 CCET admits 420 students annually in Degree Programmes In 4 branches of Engineering namely Computer Science & Engineering,
+				  Electronics & Telecommunications, Mechanical Engineering, Electrical Engineering. CCET also admits 36 students in Post-Graduate M.Tech. programme in CAD/CAM/Robotics and Nano Technology.
+				   The cornerstone of CCET’s academic programmes is quality infrastructure combined with qualified and motivated faculty, placed in an environment that encourages students to make the most of both.
+			</p>
+		</div>		
+	</div>
+
+	<div class="col-2">
+		<div class="fl">
+			<img src="{% static 'ccet2.jpg' %}">
+		</div>		
+	</div>
+</div>
+<div class="row">
+<div class="col-1">
+	<h3>About Campus</h3>
+	<p><ul id="abtcmp" style="list-style-type: disc;">CCET campus spread over an area of 17.45 acres in the Industrial Belt of the Steel City, Bhilai, Chhattisgarh. It presents a panorama of harmony in architecture and natural beauty.  The campus has been organized in three functional sectors:
+	
+		<li>Hostels for Students (Boys and Girls), Health Centre, Sports Complex</li>
+		<li>Academic Buildings, Administrative Building and Central Library</li>
+		<li>Residential &  Guest House</li>
+		The academic buildings are located fairly in close proximate, to the hostels and the Sports Complex.
+		The College is having a dedicated Workshop for the Mechanical Engineering Department where Manufacturing Unit for preparation and maintenance of wooden and steel work for all sister institution.
+		The campus has an ATM of State bank of India as well as Students Store in campus.
+		
+		The Institute has its own Health Center with a part time residential medical Officer.
+		
+		In Campus Boys and Girls Hostel managed by Priests and Nuns. A Spacious canteen is located close to the instruction zone and hostels.
+		The Institute has a well equipped Gymkhana apart from various playgrounds for Tennis, Badminton, Volley Ball, Foot Ball, Hockey and Cricket and an Indoor Games Complex. NSS unit is also located on campus.
+		They are very well used by students and campus residents of quarters.</ul>
+	</p>
+</div>	
+</div>
+</div>
+<div class="row">
+	<div class="col-1">
+		<h3 id="plch3">COMPANIES VISITED FOR CAMPUS PLACEMENT</h3><hr>
+		<div id="placement">
+			<img src="{% static 'wipro.jpg'%}">
+			<img src="{% static 'techmahindra.jpg'%}">
+			<img src="{% static 'ibm.jpg'%}">
+			<img src="{% static 'isro.jpg'%}">
+			<img src="{% static 'tcs.jpg'%}">
+			<img src="{% static 'microsoft.jpg'%}">
+		</div>
+	</div>
+</div>
+</div>
+<script type="text/javascript">
+	var Menuitems=document.getElementById("Menuitems");
+	Menuitems.style.maxHeight="0px";
+	function menutoggel(){
+		if(Menuitems.style.maxHeight=="0px")
+		{
+			Menuitems.style.maxHeight="200px";
+		}
+		else
+		{
+			Menuitems.style.maxHeight="0px";
+		}
+	}
+</script>
+</body>

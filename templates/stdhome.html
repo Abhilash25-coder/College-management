@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+
+{%block body%}
+<html>
+        <head>
+                
+                <style>
+                        body{
+                                font-family: 'Poppins', sans-serif;
+                                background: #ffffff;
+                          }
+                        .a{
+                                height: 250px;
+                                width: auto;
+                                border-style: inset;
+                                border-color: grey;
+                                padding: 20px;
+                                margin: 10px;
+                                text-align: center;
+                                background-color:  #ebd1da;
+                           }
+                          .a p{
+                                  position: relative;
+                                   text-decoration: none;
+                                   color: #20201e;
+                                   margin: 90px;
+                                   font-size: 30px;
+                           }
+                           .a:hover{
+                                   background-color:#fad6f0;
+                                   transform: translateY(-5px);
+                                   color: black;
+                           }
+                           .head1{
+                                   display: flex;
+                                   width: auto;
+                                   justify-content:space-between;
+                                  letter-spacing: 1px;
+                                  font-size: 20px;
+                                  margin: 20px;
+                           }
+                           .head1 img{
+                                   width: 125px;
+                                   height: 100px;
+                           }
+                           .dash{
+                                   display: flex;
+                                   justify-content: center;
+                                   margin: 30px;
+                                   margin-bottom: 40px;
+                                   lighting-color: aqua;
+                                   font-size: 25px;
+                                   color: rgb(82, 94, 91);
+                                   letter-spacing: .5px;
+                           }
+                           
+                           
+                           </style>
+        </head>
+        <body>
+                {% load static %}
+       <div class="container">
+               <div class="dash">
+                       <h2>Student Dashboard</h2>
+               </div>
+               <div class="head1">
+               
+                       <img src="{{Students.image.url}}">
+               <h4>Name:{{Students.firstname}}{{Students.lastname}}</h4>
+                <h5>{{Std.firstname}}</h5>               
+              
+                <br>
+                {% if user.is_authenticated %}
+                       
+                        <h4>Sem:{{Students.semester}}</h4>
+                        
+                {%else%}
+                <h4>sem:data is not fetched</h4>
+                {%endif%}
+                <br>
+                <h4>Branch: {{Students.branch}}</h4>
+        
+               <a href="#"><h4>Edit profile</h4></a>
+        </div>
+               <hr>
+               <div class="row">
+                       <div class="col-2">
+                               <div class="a">
+                                <a href="#"><p>Assignments</p></a>
+                               </div>
+                       </div>
+                       <div class="col-2">
+                        <div class="a">
+                            <a href="#"><p>Class Test</p></a>
+                        </div>
+                         </div>
+
+               </div>
+
+               <div class="row">
+                <div class="col-2">
+                        <div class="a">
+                                <a href="#"><p>Fees Status</p></a>
+                        </div>
+                </div>
+                <div class="col-2">
+                 <div class="a">
+                        <a href="#"><p>Internal Marks</p></a>
+                 </div>
+                  </div>
+
+        </div>
+       </div>
+        </body>
+        </html>
+        {%endblock%}
+
+
+  

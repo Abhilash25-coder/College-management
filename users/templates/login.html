@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{%block body%}
+
+<html>
+    <head>
+        <style>
+            .form{
+                font-size: 20px;
+                align-content: center;
+                align-items: center;
+                letter-spacing: 1px;
+            }
+            .col-1 div p{
+                font-size: 30px;
+                color: rgb(143, 140, 140);
+                padding-top: 30px;
+                padding-bottom: 30px;
+                letter-spacing: 2px;
+            }
+            .form input{
+                border-radius: 5px;
+                border-spacing: .5px;
+                border-style: thin;
+                padding: 5px;
+            }
+            .form button{
+                background-color: rgb(134, 217, 255);
+                padding: 10px;
+                margin-top: 10px;
+                border-radius: 5px;
+                font-size: 15px;
+                font-style: bold;
+                color: black;
+                width: fit-content;
+            }
+            .form button:hover{
+                                   background-color:#74c1f5;
+                                   transform: translateY(-2px);
+                           }
+            .form h3{
+                margin-top: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-1">
+                    <div>
+                        <p>Login Portal</p>
+                       
+                    </div>
+        <div class="form">
+            
+            
+            
+        <form action="login" method="POST" >
+            {% csrf_token %}
+            <h3>Email ID:</h3>
+            <input type="email" name="email">
+            <br>
+            <h3>Password:</h3>
+            <input type="password" name="password">
+            
+            <br>
+            <button>Login</button>
+        </form>
+        </div>
+        </div>
+        </div>
+        </div>
+        {% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+      <li class="{{ message.tags }}">{{ message }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+        </body>
+<script>
+    $(".toggle-password").click(function() {
+
+$(this).toggleClass("fa-eye fa-eye-slash");
+var input = $($(this).attr("toggle"));
+if (input.attr("type") == "password") {
+  input.attr("type", "text");
+} else {
+  input.attr("type", "password");
+}
+});
+</script>
+
+
+
+</html>
+{%endblock%}

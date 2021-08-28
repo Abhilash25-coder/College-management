@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+
+{%block body%}
+<html>
+    <head>
+        <style>
+            .form{
+                width: auto;
+                height: auto;
+                font-size: 20px;
+                letter-spacing: 1px;
+                display: flex;
+                justify-content:center;
+                
+                background-color: antiquewhite;
+               
+            }
+            .form p{
+                font-size: 30px;
+                color: rgb(143, 140, 140);
+                margin-top: 20px;
+            }
+            .form input{
+                margin-top: 5px;
+                width: 250px;
+                height: auto;
+                border-radius: 5px;
+                font-size: 15px;
+                padding: 5px;
+                color: black;
+            }
+            .form h3{
+                margin-top: 10px;
+                letter-spacing: 1px;
+                font-size: 20px;
+            }
+            .form button{
+                width: 200px;
+                height: 40px;
+                background-color: rgb(107, 248, 107);
+                border-radius: 5px;
+                font-size: 20px;
+                color: rgb(14, 12, 12);
+                margin: 20px;
+            }
+            .form button:hover{
+                transform: translateY(-2px);
+                background-color: rgb(94, 226, 94);
+            }
+        </style>
+    </head>
+        <body>
+            <div class="container">
+                <div class="form">
+                    <form enctype="multipart/form-data" action="register" method="post" >
+                        {%csrf_token%}
+                         <p>Faculty Registration Form</p><br>
+                         <h3>Full Name</h3>
+                         <input type="text" name="firstname" placeholder="Firstname">
+                         <input type="text" name="lastname" placeholder="Lastname"><br>
+                         <h3>Enrollment Number</h3>
+                         <input type="text" name="enrol" placeholder="Enrollment No"><br>
+                         <h3>Course</h3>
+                         <select name="course">
+                             <option>B.E</option>
+                             <option>MTech</option>
+                         </select>
+                         <h3>Branch</h3>
+                         <select name="branch">
+                             <option>C.S.E</option>
+                             <option>Mech</option>
+                             <option>Electric</option>
+                             <option>ET&T</option>
+                             <option>Cad</option>
+                         </select>
+                         <br>
+                         <h3>Semester</h3>
+                         <select name="semester">
+                             <option>1</option>
+                             <option>2</option>
+                             <option>3</option>
+                             <option>4</option>
+                             <option>5</option>
+                             <option>6</option>
+                             <option>7</option>
+                             <option>8</option>
+                         </select><br>
+                         <h3>Email</h3>
+                         <input type="email" name="email" placeholder="Email"><br>
+                         <h3>Address</h3>
+                         <input type="textarea" name="address" placeholder="Address"><br>
+                         <h3>Mobile No.</h3>
+                         <input type="number" name="mobile" placeholder="Mobile Number"><br>
+                         <h3>Password</h3>
+                         <input type="password" name="password" placeholder="Password"><br>
+                         <h3>Upload Image</h3>
+                         <input type="file" name="myfile"><br>
+                         <button>Submit</button>
+                     </form>
+                </div>
+            </div>
+            {% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+      <li class="{{ message.tags }}">{{ message }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+        </body>
+    
+</html>
+{%endblock%}

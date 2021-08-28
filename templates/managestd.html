@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{%block body%}
+<html>
+    <head>
+        <style>
+            #mh{
+                display: flex;
+                justify-content: space-between;
+                background-color: bisque;
+                padding:5px;
+            }
+            #active{
+                color: grey;
+            }
+            
+            table, th, td{
+                border: 1px solid;
+                border-collapse: collapse;
+                padding: 10px;
+                margin-top: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div id="mh">
+                <a href="#" id="active"><h3>Manage Student</h3></a>
+               
+               <a href="/users/register"><h3>Add Students</h3></a> 
+                <h3>View Assignments</h3>                  
+                <h3>Add Assignments</h3>
+            </div>
+            <div>
+                <table style="width: 100%;">
+                    
+                        <tr>
+                            <th>Name</th>
+                            <th>Enrollment ID</th>
+                            <th>Course</th>
+                            <th>Branch</th>
+                            <th>Semester</th>
+                            <th>Email</th>
+                            <th>Mobile</th>
+                            <th>Edit</th>
+                            <th>Remove</th>
+                        </tr>
+                        {%for student in students%}
+                        <tr>
+                            <td>{{student.firstname }}{{student.lastname}}</td>                      
+                            <td>{{student.enrol}}</td>
+                            <td>{{student.course}}</td>
+                            <td>{{student.branch}}</td>
+                            <td>{{student.semester}}</td>
+                            <td>{{student.email}}</td>
+                            <td>{{student.mobile_no}}</td>
+                            <td><a href="#">Edit</a></td>
+                            <td><form action="{% url 'institute:deletedata' student.enrol %}" method="POST">
+                                {% csrf_token %}
+                                <input type="submit" value="Delete"> 
+                            </form></td>
+                        </tr>                       
+                       
+                    {%endfor%}
+                   </table> 
+            </div>
+        </div>
+    </body>
+</html>
+{%endblock%}
